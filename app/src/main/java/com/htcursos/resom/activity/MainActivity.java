@@ -1,10 +1,13 @@
-package com.htcursos.resom;
+package com.htcursos.resom.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.htcursos.resom.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity{
 
     @OnClick(R.id.btn_start)
     public void click(){
-        titulo.setText("Olá Mundo!");
+        Intent intent = new Intent(MainActivity.this, FormClienteActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
