@@ -22,6 +22,10 @@
             android:name=".activity.ConfirmacaoClienteActivity"
             android:label="Confirmação Cliente">
         </activity>
+        <activity
+            android:name=".activity.ListaClienteActivity"
+            android:label="Lista de Clientes">
+        </activity>
     </application>
 
 </manifest>

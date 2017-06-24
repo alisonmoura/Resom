@@ -35,4 +35,14 @@
         android:textColor="@color/mangeta"
         android:id="@+id/btnList"/>
 
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/btnList"
+        android:background="@mipmap/ic_list_white_24dp"
+        android:textColor="@color/mangeta"
+        android:id="@+id/btnGrid"/>
+
 </RelativeLayout>

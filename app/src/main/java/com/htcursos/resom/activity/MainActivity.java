@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity{
     TextView titulo;
     @Bind(R.id.btn_start)
     Button btnStart;
+    @Bind(R.id.btnList)
+    Button btnList;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,5 +34,17 @@ public class MainActivity extends AppCompatActivity{
         Intent intent = new Intent(MainActivity.this, FormClienteActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @OnClick(R.id.btnList)
+    public void irParaListaCliente(){
+        Intent intent = new Intent(MainActivity.this, ListaClienteActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btnGrid)
+    public void irParaGaleria(){
+        Intent intent = new Intent(MainActivity.this, GaleriaActivity.class);
+        startActivity(intent);
     }
 }
