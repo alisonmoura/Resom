@@ -14,11 +14,19 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:id="@+id/tituloFormCliente"/>
+    
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_below="@id/tituloFormCliente"
+        android:id="@+id/imagemCliente"
+        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tituloFormCliente"
+        android:layout_below="@id/imagemCliente"
         android:id="@+id/inputNome"
         android:hint="Nome do cliente"/>
 

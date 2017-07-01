@@ -1,9 +1,13 @@
 package com.htcursos.resom.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -16,6 +20,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import se.emilsjolander.sprinkles.Query;
 
 public class ListaClienteActivity extends AppCompatActivity{
 
@@ -49,8 +54,38 @@ public class ListaClienteActivity extends AppCompatActivity{
         clientes.add(maria);
         clientes.add(ze);
 
-        ListaClienteAdapter adapter = new ListaClienteAdapter(this, clientes);
+        final ListaClienteAdapter adapter = new ListaClienteAdapter(this, clientes);
 
         listaCliente.setAdapter(adapter);
+
+        listaCliente.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view,
+                                           final int position, long id) {
+                AlertDialog alert = new AlertDialog.Builder(ListaClienteActivity.this)
+                        .setTitle("Deletar usuário")
+                        .setMessage("Deseja deletar este usuário?")
+                        .setNegativeButton("Não", null)
+                        .setPositiveButton("Sim", new
+                                DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface,
+                                                        int i) {
+                                        adapter.getItem(position).delete();
+                                        adapter.remove(adapter.getItem(position));
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                }).show();
+                return true;
+            }
+        });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ListaClienteAdapter adapter = new ListaClienteAdapter(this, Query.all(Client.class).get().asList());
+    }
+
+
 }

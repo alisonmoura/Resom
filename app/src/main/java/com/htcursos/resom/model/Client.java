@@ -2,13 +2,28 @@ package com.htcursos.resom.model;
 
 import java.io.Serializable;
 
-public class Client implements Serializable{
+import se.emilsjolander.sprinkles.Model;
+import se.emilsjolander.sprinkles.annotations.AutoIncrement;
+import se.emilsjolander.sprinkles.annotations.Column;
+import se.emilsjolander.sprinkles.annotations.Key;
+import se.emilsjolander.sprinkles.annotations.Table;
 
+@Table("Cliente")
+public class Client extends Model implements Serializable{
+
+    @AutoIncrement
+    @Key
+    @Column("id")
     private Long id;
+    @Column("name")
     private String name;
+    @Column("email")
     private String email;
+    @Column("cpf")
     private String cpf;
+    @Column("cel")
     private String cel;
+    @Column("image")
     private int image;
 
     public Long getId() {
